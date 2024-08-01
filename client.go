@@ -29,7 +29,7 @@ func NewServerRequest(url string, r io.ReadCloser) (*http.Request, error) {
 }
 
 // TODO: Remove v1 client
-func NewClientV1(host string, path, username, password string) (io.ReadCloser, error) {
+func NewClientV1(host string, path, username, password string) (net.Conn, error) {
 	conn, err := net.Dial("tcp", host)
 	if err != nil {
 		return nil, err
